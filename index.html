@@ -13,10 +13,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="img/eduarda.jpg">
+  <link rel="preload" as="image" href="img/eduarda-cut.png">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="is-loading">
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="wa" viewBox="0 0 24 24">
@@ -32,6 +32,19 @@
   </symbol>
 </svg>
 
+<!-- ============ ABERTURA ============ -->
+<div class="loader" aria-hidden="true">
+  <div class="loader__panel"></div>
+  <div class="loader__inner">
+    <svg class="loader__mark" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46"/></svg>
+    <span class="loader__e">E</span>
+    <p class="loader__name">Eduarda Cristina <i>·</i> Fisioterapia</p>
+    <span class="loader__count" data-count>0</span>
+  </div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"><b data-cursor-label></b></span></div>
 <div class="progress" aria-hidden="true"><span data-progress></span></div>
 
 <header class="nav">
@@ -41,11 +54,12 @@
   </a>
   <nav class="nav__links" aria-label="Principal">
     <a href="#em-casa">Em casa</a>
+    <a href="#onde-doi">Onde dói?</a>
     <a href="#areas">Áreas</a>
     <a href="#metodo">Método</a>
     <a href="#sobre">Sobre</a>
   </nav>
-  <a href="#agendar" class="btn btn--sm nav__cta">Agendar avaliação</a>
+  <a href="#agendar" class="btn btn--sm nav__cta" data-magnetic>Agendar avaliação</a>
   <button class="nav__toggle" aria-expanded="false" aria-label="Abrir menu"><span></span><span></span></button>
 </header>
 
@@ -53,137 +67,213 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero" data-hero>
-    <div class="hero__media" data-hero-media>
-      <img src="img/eduarda.jpg" width="800" height="800" alt="Eduarda Cristina, fisioterapeuta, de blazer branco, sorrindo com a mão apoiada no queixo">
-    </div>
-    <div class="hero__veil" aria-hidden="true"></div>
-    <div class="hero__inner" data-hero-copy>
-      <p class="eyebrow eyebrow--light"><span class="dot"></span>Fisioterapia domiciliar · Belém-PA</p>
-      <h1 class="hero__title" data-split>Movimento de volta, <em>sem sair de casa.</em></h1>
-      <p class="hero__lead fade-up">Devolvendo movimento e uma rotina sem dor para adultos e idosos, no conforto e na segurança do próprio lar.</p>
-      <div class="hero__actions fade-up">
-        <a href="#agendar" class="btn">Agendar avaliação <svg><use href="#arrow"/></svg></a>
-        <a href="https://www.instagram.com/eduardacrisfisio/" class="btn btn--ghost" target="_blank" rel="noopener"><svg><use href="#ig"/></svg> @eduardacrisfisio</a>
+    <div class="hero__stage">
+      <div class="hero__glow" data-glow aria-hidden="true"></div>
+      <div class="hero__rings" aria-hidden="true"><i></i><i></i><i></i></div>
+
+      <h1 class="hero__h1">
+        <span class="hero__word" data-hero-word><span class="hero__word-in">Movimento</span></span>
+        <span class="hero__tag" data-hero-tag>
+          <span class="eyebrow eyebrow--light"><span class="dot"></span>Fisioterapia domiciliar · Belém-PA</span>
+          <span class="hero__tagline" data-split>de volta,<br> <em>sem sair de casa.</em></span>
+        </span>
+      </h1>
+
+      <div class="hero__figure" data-hero-fig>
+        <img src="img/eduarda-cut.png" width="800" height="800" alt="Eduarda Cristina, fisioterapeuta, de blazer branco, sorrindo com a mão apoiada no queixo">
       </div>
-      <dl class="hero__creds fade-up">
-        <div><dt>Registro</dt><dd>CREFITO 12 · 405202-F</dd></div>
-        <div><dt>Pós-graduação</dt><dd>Traumato-ortopedia</dd></div>
-        <div><dt>Pós-graduação</dt><dd>Cardiorrespiratória</dd></div>
-      </dl>
-    </div>
-    <a href="#em-casa" class="hero__scroll" aria-label="Rolar para o conteúdo"><span></span></a>
-  </section>
 
-  <!-- ============ FAIXA ============ -->
-  <div class="band" aria-label="Dor, funcionalidade e qualidade de vida">
-    <div class="band__track" data-marquee>
-      <span>Dor</span><i></i><span><em>Funcionalidade</em></span><i></i><span>Qualidade de vida</span><i></i>
-      <span>Dor</span><i></i><span><em>Funcionalidade</em></span><i></i><span>Qualidade de vida</span><i></i>
-      <span>Dor</span><i></i><span><em>Funcionalidade</em></span><i></i><span>Qualidade de vida</span><i></i>
-    </div>
-  </div>
+      <aside class="hero__side" data-hero-side>
+        <p class="hero__lead">Devolvendo movimento e uma rotina sem dor para adultos e idosos, no conforto do próprio lar.</p>
+        <a href="#agendar" class="btn" data-magnetic>Agendar avaliação <svg><use href="#arrow"/></svg></a>
+        <dl class="hero__creds">
+          <div><dt>Registro</dt><dd>CREFITO 12 · 405202-F</dd></div>
+          <div><dt>Pós-graduação</dt><dd>Traumato-ortopedia</dd></div>
+          <div><dt>Pós-graduação</dt><dd>Cardiorrespiratória</dd></div>
+        </dl>
+      </aside>
 
-  <!-- ============ MANIFESTO / EM CASA ============ -->
-  <section class="statement" id="em-casa">
-    <div class="wrap">
-      <p class="eyebrow">01 — Por que em casa</p>
-      <p class="statement__text" data-scrub>Muitas pessoas adiam a fisioterapia porque acham que precisam ir até uma clínica. Em diversos casos, o tratamento pode começar no <em>conforto da sua casa.</em></p>
-    </div>
-
-    <div class="wrap home-grid">
-      <article class="home-card" data-reveal>
-        <span class="home-card__n">i.</span>
-        <h3>Sem deslocamento</h3>
-        <p>Nada de trânsito, escadas de clínica ou esperas. A sessão chega até o paciente, e a energia fica para o tratamento.</p>
-      </article>
-      <article class="home-card" data-reveal>
-        <span class="home-card__n">ii.</span>
-        <h3>O treino é a vida real</h3>
-        <p>Os degraus da sua casa, a sua cama, a sua cadeira. Treinamos exatamente os movimentos que a rotina pede.</p>
-      </article>
-      <article class="home-card" data-reveal>
-        <span class="home-card__n">iii.</span>
-        <h3>Família por perto</h3>
-        <p>Quem cuida acompanha de perto, entende a evolução e aprende a apoiar com segurança entre uma sessão e outra.</p>
-      </article>
+      <div class="hero__hint" aria-hidden="true"><span></span>Role para descobrir</div>
     </div>
   </section>
 
-  <!-- ============ ÁREAS ============ -->
+  <!-- ============ MANIFESTO ============ -->
+  <section class="manifesto" data-manifesto>
+    <div class="manifesto__stage">
+      <div class="wrap">
+        <p class="eyebrow">01 — Por que em casa</p>
+        <p class="manifesto__text" data-scrub>Muitas pessoas adiam a fisioterapia porque acham que precisam ir até uma clínica. Em diversos casos, o tratamento pode começar no <em>conforto da sua casa.</em></p>
+      </div>
+      <div class="manifesto__orb" data-orb aria-hidden="true">
+        <video src="video/casa.mp4" poster="video/casa.jpg" muted loop playsinline preload="metadata"></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EM CASA (horizontal) ============ -->
+  <section class="house" id="em-casa" data-house>
+    <div class="house__pin">
+      <div class="house__track" data-track>
+        <div class="panel panel--intro">
+          <p class="eyebrow eyebrow--light">02 — Em casa</p>
+          <h2 class="sec-title">A clínica <em>vai até você.</em></h2>
+          <p class="panel__sub">Atendimento real, na sala, no quarto, no corredor de casa. Arraste a rolagem e veja.</p>
+          <span class="panel__arrow" aria-hidden="true"><svg><use href="#arrow"/></svg></span>
+        </div>
+
+        <figure class="panel panel--media" data-cursor="Assistir">
+          <div class="panel__frame"><video src="video/casa.mp4" poster="video/casa.jpg" muted loop playsinline preload="metadata" data-par></video></div>
+          <figcaption><b>Sessão em casa.</b> Treino de marcha com caneleiras e cones, acompanhado de perto.</figcaption>
+        </figure>
+
+        <article class="panel panel--card">
+          <span class="panel__n">i.</span>
+          <h3>Sem deslocamento</h3>
+          <p>Nada de trânsito, escadas de clínica ou espera. A sessão chega até o paciente, e a energia fica para o tratamento.</p>
+        </article>
+
+        <figure class="panel panel--media panel--tall" data-cursor="Assistir">
+          <div class="panel__frame"><video src="video/passos.mp4" poster="video/passos.jpg" muted loop playsinline preload="metadata" data-par></video></div>
+          <figcaption><b>O treino é a vida real.</b> O piso, o espaço e os obstáculos da própria casa.</figcaption>
+        </figure>
+
+        <article class="panel panel--card">
+          <span class="panel__n">ii.</span>
+          <h3>O ambiente de verdade</h3>
+          <p>Os degraus da sua casa, a sua cama, a sua cadeira. Treinamos exatamente os movimentos que a rotina pede.</p>
+        </article>
+
+        <figure class="panel panel--media" data-cursor="Assistir">
+          <div class="panel__frame"><video src="video/bola.mp4" poster="video/bola.jpg" muted loop playsinline preload="metadata" data-par></video></div>
+          <figcaption><b>Do jeitinho que dá.</b> Exercício adaptado na própria cama, com segurança.</figcaption>
+        </figure>
+
+        <article class="panel panel--card">
+          <span class="panel__n">iii.</span>
+          <h3>Família por perto</h3>
+          <p>Quem cuida acompanha a evolução e aprende a apoiar com segurança entre uma sessão e outra.</p>
+        </article>
+      </div>
+      <div class="house__bar" aria-hidden="true"><i data-house-bar></i></div>
+    </div>
+  </section>
+
+  <!-- ============ ONDE DÓI ============ -->
+  <section class="body" id="onde-doi">
+    <div class="wrap body__grid">
+      <div class="body__fig">
+        <svg class="skel" viewBox="0 0 300 620" role="img" aria-label="Figura humana com pontos clicáveis por região do corpo">
+          <g class="skel__bones" data-bones>
+            <line x1="150" y1="88" x2="150" y2="112"/>
+            <line x1="100" y1="128" x2="200" y2="128"/>
+            <line x1="100" y1="128" x2="84" y2="208"/><line x1="84" y1="208" x2="76" y2="284"/>
+            <line x1="200" y1="128" x2="216" y2="208"/><line x1="216" y1="208" x2="224" y2="284"/>
+            <line x1="150" y1="112" x2="150" y2="286"/>
+            <line x1="122" y1="292" x2="178" y2="292"/>
+            <line x1="122" y1="292" x2="116" y2="412"/><line x1="116" y1="412" x2="112" y2="530"/>
+            <line x1="178" y1="292" x2="184" y2="412"/><line x1="184" y1="412" x2="188" y2="530"/>
+            <line x1="112" y1="530" x2="94" y2="552"/><line x1="188" y1="530" x2="206" y2="552"/>
+            <path d="M118 150 C118 196 182 196 182 150" class="skel__rib"/>
+            <path d="M122 172 C122 210 178 210 178 172" class="skel__rib"/>
+            <line x1="40" y1="578" x2="260" y2="578" class="skel__ground"/>
+          </g>
+          <circle cx="150" cy="58" r="28" class="skel__head"/>
+          <g class="skel__joints">
+            <circle cx="84" cy="208" r="4"/><circle cx="216" cy="208" r="4"/>
+            <circle cx="76" cy="284" r="4"/><circle cx="224" cy="284" r="4"/>
+            <circle cx="178" cy="292" r="4"/><circle cx="116" cy="412" r="4"/>
+            <circle cx="188" cy="530" r="4"/><circle cx="100" cy="128" r="4"/>
+          </g>
+          <g class="skel__spots">
+            <g class="spot" data-spot="pescoco" tabindex="0" role="button" aria-label="Pescoço"><circle class="spot__halo" cx="150" cy="104" r="16"/><circle class="spot__core" cx="150" cy="104" r="6"/></g>
+            <g class="spot" data-spot="ombro" tabindex="0" role="button" aria-label="Ombro"><circle class="spot__halo" cx="200" cy="128" r="16"/><circle class="spot__core" cx="200" cy="128" r="6"/></g>
+            <g class="spot" data-spot="folego" tabindex="0" role="button" aria-label="Fôlego"><circle class="spot__halo" cx="150" cy="168" r="16"/><circle class="spot__core" cx="150" cy="168" r="6"/></g>
+            <g class="spot" data-spot="coluna" tabindex="0" role="button" aria-label="Coluna"><circle class="spot__halo" cx="150" cy="248" r="16"/><circle class="spot__core" cx="150" cy="248" r="6"/></g>
+            <g class="spot" data-spot="quadril" tabindex="0" role="button" aria-label="Quadril"><circle class="spot__halo" cx="122" cy="292" r="16"/><circle class="spot__core" cx="122" cy="292" r="6"/></g>
+            <g class="spot" data-spot="joelho" tabindex="0" role="button" aria-label="Joelho"><circle class="spot__halo" cx="184" cy="412" r="16"/><circle class="spot__core" cx="184" cy="412" r="6"/></g>
+            <g class="spot" data-spot="tornozelo" tabindex="0" role="button" aria-label="Tornozelo e pés"><circle class="spot__halo" cx="112" cy="530" r="16"/><circle class="spot__core" cx="112" cy="530" r="6"/></g>
+            <g class="spot" data-spot="equilibrio" tabindex="0" role="button" aria-label="Equilíbrio"><circle class="spot__halo" cx="150" cy="578" r="16"/><circle class="spot__core" cx="150" cy="578" r="6"/></g>
+          </g>
+        </svg>
+        <p class="body__hint">Toque em um ponto</p>
+      </div>
+
+      <div class="body__info">
+        <p class="eyebrow eyebrow--light">03 — Onde dói?</p>
+        <h2 class="sec-title">Mostre onde o corpo <em>pede ajuda.</em></h2>
+        <div class="body__card" aria-live="polite">
+          <span class="body__region" data-b-region>Joelho</span>
+          <h3 data-b-title>Joelho e degraus</h3>
+          <p data-b-text>Dor ou insegurança para subir degraus, agachar ou sentar. Fortalecimento e treino funcional no próprio ambiente.</p>
+          <button class="btn" type="button" data-b-cta data-magnetic>Quero avaliar isso <svg><use href="#arrow"/></svg></button>
+        </div>
+        <p class="body__note">A avaliação presencial é que define o tratamento de cada caso.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ÁREAS (cartas empilhadas) ============ -->
   <section class="areas" id="areas">
     <div class="wrap">
-      <header class="sec-head">
-        <p class="eyebrow eyebrow--light">02 — Áreas de atuação</p>
-        <h2 class="sec-title" data-words>Cuidado especializado para <em>adultos e idosos.</em></h2>
+      <header class="areas__head">
+        <p class="eyebrow">04 — Áreas de atuação</p>
+        <h2 class="sec-title sec-title--dark" data-words>Cuidado especializado para <em>adultos e idosos.</em></h2>
       </header>
-
-      <div class="areas__list">
-        <article class="area" data-reveal>
-          <span class="area__idx">01</span>
-          <div class="area__body">
-            <h3>Traumato-ortopedia</h3>
+      <div class="stack">
+        <article class="scard scard--mauve" data-scard>
+          <span class="scard__idx">01</span>
+          <div>
+            <h3>Traumato-<br>ortopedia</h3>
             <p>Dores, lesões e limitações de músculos, ossos e articulações. Recuperação da força e da mobilidade para voltar a se mover com confiança.</p>
+            <ul class="scard__tags"><li>Dor</li><li>Mobilidade</li><li>Fortalecimento</li></ul>
           </div>
-          <ul class="area__tags"><li>Dor</li><li>Mobilidade</li><li>Fortalecimento</li></ul>
+          <svg class="scard__art" viewBox="0 0 200 200" aria-hidden="true"><circle cx="70" cy="70" r="22"/><circle cx="130" cy="130" r="22"/><line x1="86" y1="86" x2="114" y2="114"/><circle cx="100" cy="100" r="92" class="o"/></svg>
         </article>
-        <article class="area" data-reveal>
-          <span class="area__idx">02</span>
-          <div class="area__body">
-            <h3>Cardiorrespiratória</h3>
+        <article class="scard scard--olive" data-scard>
+          <span class="scard__idx">02</span>
+          <div>
+            <h3>Cardio-<br>respiratória</h3>
             <p>Fôlego, condicionamento e resistência para as atividades do dia a dia, com exercício dosado e acompanhado de perto.</p>
+            <ul class="scard__tags"><li>Condicionamento</li><li>Fôlego</li><li>Recuperação</li></ul>
           </div>
-          <ul class="area__tags"><li>Condicionamento</li><li>Fôlego</li><li>Recuperação</li></ul>
+          <svg class="scard__art" viewBox="0 0 200 200" aria-hidden="true"><path d="M10 100 H70 L82 60 L98 150 L112 80 L122 100 H190"/><circle cx="100" cy="100" r="92" class="o"/></svg>
         </article>
-        <article class="area" data-reveal>
-          <span class="area__idx">03</span>
-          <div class="area__body">
-            <h3>Funcionalidade do idoso</h3>
+        <article class="scard scard--ink" data-scard>
+          <span class="scard__idx">03</span>
+          <div>
+            <h3>Funcionalidade<br>do idoso</h3>
             <p>Equilíbrio, marcha, levantar da cadeira, subir degraus. Idosos funcionais e independentes, do jeitinho que cada um consegue.</p>
+            <ul class="scard__tags"><li>Equilíbrio</li><li>Independência</li><li>Degraus</li></ul>
           </div>
-          <ul class="area__tags"><li>Equilíbrio</li><li>Independência</li><li>Degraus</li></ul>
+          <svg class="scard__art" viewBox="0 0 200 200" aria-hidden="true"><path d="M30 160 H70 V130 H110 V100 H150 V70 H180"/><circle cx="100" cy="100" r="92" class="o"/></svg>
         </article>
       </div>
     </div>
-    <svg class="pulse" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
-      <path data-draw d="M0 60 H420 L450 60 L470 20 L495 104 L520 38 L540 60 H700 C780 60 800 30 860 30 S960 90 1040 60 H1200"/>
-    </svg>
   </section>
 
-  <!-- ============ MÉTODO ============ -->
+  <!-- ============ MÉTODO (fixo) ============ -->
   <section class="method" id="metodo" data-method>
-    <div class="wrap method__grid">
-      <div class="method__sticky">
-        <p class="eyebrow">03 — Plano de tratamento</p>
-        <h2 class="sec-title sec-title--dark" data-words>Da avaliação <em>à sua evolução.</em></h2>
-        <p class="method__intro">Resultado de verdade começa muito antes do exercício. Começa entendendo o paciente.</p>
-        <div class="method__meter" aria-hidden="true">
-          <span class="method__count"><b data-step-now>01</b> / 04</span>
-          <span class="method__bar"><i data-step-bar></i></span>
+    <div class="method__pin">
+      <div class="wrap method__grid">
+        <div class="method__dial">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <circle cx="100" cy="100" r="90" class="track"/>
+            <circle cx="100" cy="100" r="90" class="fill" data-dial/>
+          </svg>
+          <span class="method__num" data-m-num>01</span>
+          <span class="method__of">de 04</span>
+        </div>
+        <div class="method__copy">
+          <p class="eyebrow">05 — Plano de tratamento</p>
+          <h2 class="sec-title sec-title--dark">Da avaliação <em>à sua evolução.</em></h2>
+          <ol class="msteps">
+            <li class="mstep is-active" data-mstep><h3>Avaliação</h3><p>Uma conversa e um exame cuidadosos, em casa: histórico, queixas, rotina e o ambiente em que o paciente vive.</p></li>
+            <li class="mstep" data-mstep><h3>Objetivos</h3><p>Identificamos as necessidades e definimos, juntos, onde queremos chegar. Metas claras e possíveis.</p></li>
+            <li class="mstep" data-mstep><h3>Exercício com propósito</h3><p>Cada exercício é escolhido com uma razão. Movimento, fortalecimento, condicionamento e recuperação adequada.</p></li>
+            <li class="mstep" data-mstep><h3>Acompanhamento</h3><p>Cada pessoa responde de uma forma. O tratamento é individualizado, acompanhado e ajustado durante todo o processo.</p></li>
+          </ol>
         </div>
       </div>
-
-      <ol class="method__steps">
-        <li class="step" data-step>
-          <span class="step__n">01</span>
-          <h3>Avaliação</h3>
-          <p>Uma conversa e um exame cuidadosos, em casa: histórico, queixas, rotina e o ambiente em que o paciente vive.</p>
-        </li>
-        <li class="step" data-step>
-          <span class="step__n">02</span>
-          <h3>Objetivos</h3>
-          <p>Identificamos as necessidades e definimos, juntos, onde queremos chegar. Metas claras e possíveis.</p>
-        </li>
-        <li class="step" data-step>
-          <span class="step__n">03</span>
-          <h3>Exercício com propósito</h3>
-          <p>Cada exercício é escolhido com uma razão. Movimento, fortalecimento, condicionamento e recuperação adequada.</p>
-        </li>
-        <li class="step" data-step>
-          <span class="step__n">04</span>
-          <h3>Acompanhamento</h3>
-          <p>Cada pessoa responde de uma forma. Por isso o tratamento é individualizado, acompanhado e ajustado durante todo o processo.</p>
-        </li>
-      </ol>
     </div>
   </section>
 
@@ -191,12 +281,12 @@
   <section class="about" id="sobre">
     <div class="wrap about__grid">
       <figure class="about__photo" data-clip>
-        <img src="img/ig-DcI_Rf-Fk8V.jpg" width="640" height="800" loading="lazy" alt="Eduarda Cristina em seu consultório, em post sobre como monta o plano de tratamento">
+        <div class="about__img"><img src="img/ig-DcI_Rf-Fk8V.jpg" width="640" height="800" loading="lazy" alt="Eduarda Cristina em seu consultório, em post sobre como monta o plano de tratamento" data-par-y></div>
         <figcaption>Como eu monto o seu plano de tratamento</figcaption>
       </figure>
       <div class="about__copy">
-        <p class="eyebrow">04 — Quem cuida</p>
-        <h2 class="sec-title sec-title--dark" data-words>Eduarda <em>Cristina</em></h2>
+        <p class="eyebrow">06 — Quem cuida</p>
+        <h2 class="about__name" data-words>Eduarda <em>Cristina</em></h2>
         <p class="about__lead">Fisioterapeuta em Belém-PA, dedicada ao atendimento domiciliar de adultos e idosos.</p>
         <p>Pós-graduada em Traumato-ortopedia e em Fisioterapia Cardiorrespiratória, conduz cada caso com o mesmo princípio: entender a pessoa antes de prescrever o movimento.</p>
         <ul class="about__facts">
@@ -206,13 +296,18 @@
         </ul>
       </div>
     </div>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>Dor</span><i></i><span><em>Funcionalidade</em></span><i></i><span>Qualidade de vida</span><i></i><span>Dor</span><i></i><span><em>Funcionalidade</em></span><i></i><span>Qualidade de vida</span><i></i>
+      </div>
+    </div>
   </section>
 
   <!-- ============ CITAÇÃO ============ -->
-  <section class="quote">
+  <section class="quote" data-quote>
     <div class="wrap">
       <blockquote>
-        <p data-words>“Cuidar do corpo não é esperar o desconforto aparecer. É construir, todos os dias, um corpo capaz de continuar fazendo <em>o que você ama.</em>”</p>
+        <p data-scrub>“Cuidar do corpo não é esperar o desconforto aparecer. É construir, todos os dias, um corpo capaz de continuar fazendo <em>o que você ama.</em>”</p>
         <footer>— Eduarda Cristina</footer>
       </blockquote>
     </div>
@@ -227,14 +322,16 @@
       </div>
       <a href="https://www.instagram.com/eduardacrisfisio/" class="link" target="_blank" rel="noopener">Seguir @eduardacrisfisio <svg><use href="#arrow"/></svg></a>
     </div>
-    <div class="feed__rail" data-rail tabindex="0" aria-label="Publicações recentes do Instagram">
-      <a class="post" href="https://www.instagram.com/p/DayZCzllil1/" target="_blank" rel="noopener"><img src="img/ig-DayZCzllil1.jpg" width="640" height="800" loading="lazy" alt="Post: quando o atendimento domiciliar é a melhor opção?"></a>
-      <a class="post" href="https://www.instagram.com/reel/DcLdKwsBOJz/" target="_blank" rel="noopener"><img src="img/ig-DcLdKwsBOJz.jpg" width="640" height="1136" loading="lazy" alt="Reel: paciente idoso em exercício com caneleiras durante atendimento"></a>
-      <a class="post" href="https://www.instagram.com/p/DcQlECjjbKU/" target="_blank" rel="noopener"><img src="img/ig-DcQlECjjbKU.jpg" width="640" height="800" loading="lazy" alt="Post: hábitos que seu corpo agradece"></a>
-      <a class="post" href="https://www.instagram.com/reel/DccA4rFhhSn/" target="_blank" rel="noopener"><img src="img/ig-DccA4rFhhSn.jpg" width="640" height="1136" loading="lazy" alt="Reel: acho chique idoso fazer abdominal do jeitinho que ele consegue"></a>
-      <a class="post" href="https://www.instagram.com/p/Db8D51xjQjG/" target="_blank" rel="noopener"><img src="img/ig-Db8D51xjQjG.jpg" width="640" height="800" loading="lazy" alt="Post: meu top 5 exercícios favoritos com cicloergômetro"></a>
-      <a class="post" href="https://www.instagram.com/reel/DcQuRAdBg-r/" target="_blank" rel="noopener"><img src="img/ig-DcQuRAdBg-r.jpg" width="640" height="1136" loading="lazy" alt="Reel: sinto meu ombro mais para frente, pareço curvado"></a>
-      <a class="post" href="https://www.instagram.com/p/DcOAQuHlpFZ/" target="_blank" rel="noopener"><img src="img/ig-DcOAQuHlpFZ.jpg" width="640" height="800" loading="lazy" alt="Post: eu sou fisioterapeuta"></a>
+    <div class="feed__rail" data-rail data-cursor="Arraste" tabindex="0" aria-label="Publicações recentes do Instagram">
+      <div class="feed__track" data-rail-track>
+        <a class="post" href="https://www.instagram.com/p/DayZCzllil1/" target="_blank" rel="noopener"><img src="img/ig-DayZCzllil1.jpg" width="640" height="800" loading="lazy" alt="Post: quando o atendimento domiciliar é a melhor opção?"></a>
+        <a class="post" href="https://www.instagram.com/reel/DcLdKwsBOJz/" target="_blank" rel="noopener"><img src="img/ig-DcLdKwsBOJz.jpg" width="640" height="1136" loading="lazy" alt="Reel: paciente idoso em exercício com caneleiras durante atendimento"></a>
+        <a class="post" href="https://www.instagram.com/p/DcQlECjjbKU/" target="_blank" rel="noopener"><img src="img/ig-DcQlECjjbKU.jpg" width="640" height="800" loading="lazy" alt="Post: hábitos que seu corpo agradece"></a>
+        <a class="post" href="https://www.instagram.com/reel/DccA4rFhhSn/" target="_blank" rel="noopener"><img src="img/ig-DccA4rFhhSn.jpg" width="640" height="1136" loading="lazy" alt="Reel: acho chique idoso fazer abdominal do jeitinho que ele consegue"></a>
+        <a class="post" href="https://www.instagram.com/p/Db8D51xjQjG/" target="_blank" rel="noopener"><img src="img/ig-Db8D51xjQjG.jpg" width="640" height="800" loading="lazy" alt="Post: meu top 5 exercícios favoritos com cicloergômetro"></a>
+        <a class="post" href="https://www.instagram.com/reel/DcQuRAdBg-r/" target="_blank" rel="noopener"><img src="img/ig-DcQuRAdBg-r.jpg" width="640" height="1136" loading="lazy" alt="Reel: sinto meu ombro mais para frente, pareço curvado"></a>
+        <a class="post" href="https://www.instagram.com/p/DcOAQuHlpFZ/" target="_blank" rel="noopener"><img src="img/ig-DcOAQuHlpFZ.jpg" width="640" height="800" loading="lazy" alt="Post: eu sou fisioterapeuta"></a>
+      </div>
     </div>
   </section>
 
@@ -242,10 +339,10 @@
   <section class="book" id="agendar">
     <div class="wrap book__grid">
       <div class="book__copy">
-        <p class="eyebrow eyebrow--light">05 — Agendamento</p>
+        <p class="eyebrow eyebrow--light">07 — Agendamento</p>
         <h2 class="sec-title" data-words>O primeiro passo é <em>uma avaliação.</em></h2>
         <p>Conte um pouco sobre o caso. A mensagem chega pronta no WhatsApp da Eduarda, e ela responde para combinar dia e horário.</p>
-        <a class="book__direct" href="https://wa.me/5591985666656" target="_blank" rel="noopener">
+        <a class="book__direct" href="https://wa.me/5591985666656" target="_blank" rel="noopener" data-magnetic>
           <svg><use href="#wa"/></svg>
           <span><small>WhatsApp direto</small>(91) 98566-6656</span>
         </a>
@@ -271,14 +368,8 @@
           </label>
         </div>
         <fieldset class="field field--chips">
-          <legend>O que mais incomoda hoje?</legend>
-          <div class="chips">
-            <label><input type="checkbox" name="queixa" value="dor"><span>Dor</span></label>
-            <label><input type="checkbox" name="queixa" value="dificuldade para andar"><span>Andar</span></label>
-            <label><input type="checkbox" name="queixa" value="equilíbrio / quedas"><span>Equilíbrio</span></label>
-            <label><input type="checkbox" name="queixa" value="cansaço / falta de fôlego"><span>Fôlego</span></label>
-            <label><input type="checkbox" name="queixa" value="recuperação de lesão ou cirurgia"><span>Pós-lesão</span></label>
-          </div>
+          <legend>Onde incomoda?</legend>
+          <div class="chips" data-chips></div>
         </fieldset>
         <label class="field">
           <span>Conte um pouco <small>(opcional)</small></span>
@@ -292,22 +383,25 @@
 </main>
 
 <footer class="foot">
-  <div class="wrap foot__grid">
-    <div class="foot__brand">
-      <span class="nav__mono">E</span>
-      <p>Eduarda Cristina<br><small>Fisioterapia domiciliar · Belém-PA</small></p>
+  <div class="wrap">
+    <p class="foot__big" aria-hidden="true">Eduarda <em>Cristina</em></p>
+    <div class="foot__grid">
+      <p class="foot__creds">Fisioterapia domiciliar · Belém-PA<br>CREFITO 12 · 405202-F<br>Pós em Traumato-ortopedia e Cardiorrespiratória</p>
+      <div class="foot__links">
+        <a href="https://wa.me/5591985666656" target="_blank" rel="noopener"><svg><use href="#wa"/></svg> WhatsApp</a>
+        <a href="https://www.instagram.com/eduardacrisfisio/" target="_blank" rel="noopener"><svg><use href="#ig"/></svg> Instagram</a>
+        <a href="#top" data-top>Voltar ao topo ↑</a>
+      </div>
     </div>
-    <p class="foot__creds">CREFITO 12 · 405202-F<br>Pós em Traumato-ortopedia e Cardiorrespiratória</p>
-    <div class="foot__links">
-      <a href="https://wa.me/5591985666656" target="_blank" rel="noopener"><svg><use href="#wa"/></svg> WhatsApp</a>
-      <a href="https://www.instagram.com/eduardacrisfisio/" target="_blank" rel="noopener"><svg><use href="#ig"/></svg> Instagram</a>
-    </div>
+    <p class="foot__base">© <span data-year>2026</span> Eduarda Cristina. Todos os direitos reservados.</p>
   </div>
-  <p class="foot__base wrap">© <span data-year>2026</span> Eduarda Cristina. Todos os direitos reservados.</p>
 </footer>
 
 <a href="https://wa.me/5591985666656" class="float" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp"><svg><use href="#wa"/></svg></a>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="main.js" defer></script>
 </body>
 </html>

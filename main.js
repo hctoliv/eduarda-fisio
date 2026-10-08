@@ -357,8 +357,21 @@
   });
 
   /* ---------- SOBRE: parallax da foto ---------- */
-  gsap.fromTo('[data-par-y]', { yPercent: -7 }, { yPercent: 7, ease: 'none',
-    scrollTrigger: { trigger: '.about__photo', start: 'top bottom', end: 'bottom top', scrub: true } });
+  // camadas em velocidades diferentes: arco mais lento, figura e selo mais rápidos
+  gsap.fromTo('[data-arch] i', { yPercent: -40 }, { yPercent: 30, ease: 'none',
+    scrollTrigger: { trigger: '[data-portrait]', start: 'top bottom', end: 'bottom top', scrub: true } });
+  gsap.fromTo('[data-tilt]', { y: 60 }, { y: -60, ease: 'none',
+    scrollTrigger: { trigger: '[data-portrait]', start: 'top bottom', end: 'bottom top', scrub: true } });
+  if (fine) {
+    const tilt = $('[data-tilt]'), por = $('[data-portrait]');
+    const qrx = gsap.quickTo(tilt, 'rotationX', { duration: .9, ease: 'power3' });
+    const qry = gsap.quickTo(tilt, 'rotationY', { duration: .9, ease: 'power3' });
+    por.addEventListener('pointermove', e => {
+      const r = por.getBoundingClientRect();
+      qry(((e.clientX - r.left) / r.width - .5) * 16); qrx(((e.clientY - r.top) / r.height - .5) * -12);
+    });
+    por.addEventListener('pointerleave', () => { qrx(0); qry(0); });
+  }
 
   /* ---------- CITAÇÃO ---------- */
   const qWords = $$('.w', $('.quote [data-scrub]'));
